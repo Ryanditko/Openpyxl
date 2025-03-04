@@ -109,7 +109,7 @@ def salvar_log(dados):
         with open(LOG_FILE, "w") as f:
             json.dump(log_data, f, indent=4)
 
-        print("📄 Log salvo com sucesso!")
+        print("Log salvo com sucesso!")
 
     except Exception as e:
         print(f"Erro ao salvar log: {e}")
@@ -121,12 +121,12 @@ if __name__ == "__main__":
 
         # Verifica se é horário de fechamento do expediente
     if HORARIO_INICIO <= agora <= HORARIO_FECHAMENTO:
-        print("🔄 Consolidando dados do expediente...")
+        print("Consolidando dados do expediente...")
     dados_consolidados = consolidar_dados()
     if dados_consolidados:
         atualizar_planilha(dados_consolidados)
         salvar_log(dados_consolidados)
-    print("⏳ Aguardando a próxima execução...")
+    print("Aguardando a próxima execução...")
 else:
-    print("⏸️ Fora do horário de expediente. Aguardando início...")
+    print("Fora do horário de expediente. Aguardando início...")
 
